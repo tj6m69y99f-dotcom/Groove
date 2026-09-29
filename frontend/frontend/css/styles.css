@@ -637,8 +637,8 @@ img{
 
 .filter-btn{
   border:1px solid #d6d0c6;
-  background:transparent;
-  color:var(--black);
+  background:var(--black);
+  color:var(--white);
   border-radius:999px;
   padding:.6rem 1.1rem;
 }
@@ -646,6 +646,7 @@ img{
 .filter-btn.active{
   border-color:var(--orange);
   background:var(--orange);
+  color:var(--black);
 }
 
 .status-message{
