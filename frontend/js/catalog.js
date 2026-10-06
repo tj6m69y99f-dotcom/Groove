@@ -60,10 +60,16 @@ function renderProducts() {
         <div class="product-grid">
           ${categoryProducts.map(product => `
             <article class="product-card">
-              <div class="cover ${product.coverClass}">
-                <span class="condition-tag">${product.condition === "New" ? "Novo" : "Usado"}</span>
-                <span>${product.title}</span>
-              </div>
+              <div class="cover ${product.imageUrl ? "album-cover" : product.coverClass}">
+                ${
+                  product.imageUrl
+                    ? `<img src="${product.imageUrl}" alt="Capa de ${product.title}">`
+                    : `<span>${product.title}</span>`
+                 }
+                 <span class="condition-tag">
+                    ${product.condition === "New" ? "Novo" : "Usado"}
+                  </span>
+                </div>
               <h3>${product.title}</h3>
               <p class="artist">${product.artist}</p>
               <p class="category">${product.category}</p>

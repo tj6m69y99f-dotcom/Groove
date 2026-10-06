@@ -59,7 +59,8 @@ app.get("/api/products", async (request, response) => {
   try {
     const [products] = await pool.query(`
       SELECT p.id, p.title, p.artist, c.name AS category,
-             p.condition, p.price, p.stock, p.cover_class AS coverClass
+             p.condition, p.price, p.stock,
+p.cover_class AS coverClass, p.image_url AS imageUrl
       FROM products p
       INNER JOIN categories c ON c.id = p.category_id
       ORDER BY c.name, p.title
@@ -78,7 +79,7 @@ app.get("/api/products/:id", async (request, response) => {
   try {
     const [products] = await pool.query(`
       SELECT p.id, p.category_id AS categoryId, p.title, p.artist,
-             p.condition, p.price, p.stock, p.cover_class AS coverClass
+             p.condition, p.price, p.stock, p.cover_class AS coverClass, p.image_url AS imageUrl
       FROM products p
       WHERE p.id = ?
     `, [request.params.id]);
