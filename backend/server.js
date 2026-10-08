@@ -1,10 +1,15 @@
 require("dotenv").config();
 
 const path = require("path");
+
+//IMPORTAÇÃO
 const express = require("express");
 const mysql = require("mysql2/promise");
 
+// INIT EXPRESS
 const app = express();
+
+//DEFINIR PORTA
 const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json());
